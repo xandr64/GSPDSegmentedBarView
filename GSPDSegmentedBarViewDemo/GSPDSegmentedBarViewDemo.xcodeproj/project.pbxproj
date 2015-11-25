@@ -15,6 +15,9 @@
 		027276D31C05B5C700667038 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 027276D11C05B5C700667038 /* LaunchScreen.storyboard */; };
 		027276DE1C05B5C700667038 /* GSPDSegmentedBarViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 027276DD1C05B5C700667038 /* GSPDSegmentedBarViewDemoTests.m */; };
 		027276E91C05B5C700667038 /* GSPDSegmentedBarViewDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 027276E81C05B5C700667038 /* GSPDSegmentedBarViewDemoUITests.m */; };
+		027276F91C05B66A00667038 /* GSPDSegmentedBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 027276F81C05B66A00667038 /* GSPDSegmentedBarView.m */; };
+		027277041C05C83400667038 /* GSPDBalloonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 027277011C05C83400667038 /* GSPDBalloonView.m */; };
+		027277051C05C83400667038 /* GSPDSegmentedBarSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 027277031C05C83400667038 /* GSPDSegmentedBarSegment.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,12 @@
 		027276E41C05B5C700667038 /* GSPDSegmentedBarViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GSPDSegmentedBarViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		027276E81C05B5C700667038 /* GSPDSegmentedBarViewDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSPDSegmentedBarViewDemoUITests.m; sourceTree = "<group>"; };
 		027276EA1C05B5C700667038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		027276F71C05B66A00667038 /* GSPDSegmentedBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSPDSegmentedBarView.h; path = ../../../GSPDSegmentedBarView/GSPDSegmentedBarView.h; sourceTree = "<group>"; };
+		027276F81C05B66A00667038 /* GSPDSegmentedBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSPDSegmentedBarView.m; path = ../../../GSPDSegmentedBarView/GSPDSegmentedBarView.m; sourceTree = "<group>"; };
+		027277001C05C83400667038 /* GSPDBalloonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSPDBalloonView.h; path = ../../../GSPDSegmentedBarView/GSPDBalloonView.h; sourceTree = "<group>"; };
+		027277011C05C83400667038 /* GSPDBalloonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSPDBalloonView.m; path = ../../../GSPDSegmentedBarView/GSPDBalloonView.m; sourceTree = "<group>"; };
+		027277021C05C83400667038 /* GSPDSegmentedBarSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSPDSegmentedBarSegment.h; path = ../../../GSPDSegmentedBarView/GSPDSegmentedBarSegment.h; sourceTree = "<group>"; };
+		027277031C05C83400667038 /* GSPDSegmentedBarSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSPDSegmentedBarSegment.m; path = ../../../GSPDSegmentedBarView/GSPDSegmentedBarSegment.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +110,7 @@
 		027276C21C05B5C700667038 /* GSPDSegmentedBarViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				027276F61C05B64300667038 /* GSPDSegmentedBarView */,
 				027276C61C05B5C700667038 /* AppDelegate.h */,
 				027276C71C05B5C700667038 /* AppDelegate.m */,
 				027276C91C05B5C700667038 /* ViewController.h */,
@@ -138,6 +148,19 @@
 				027276EA1C05B5C700667038 /* Info.plist */,
 			);
 			path = GSPDSegmentedBarViewDemoUITests;
+			sourceTree = "<group>";
+		};
+		027276F61C05B64300667038 /* GSPDSegmentedBarView */ = {
+			isa = PBXGroup;
+			children = (
+				027277001C05C83400667038 /* GSPDBalloonView.h */,
+				027277011C05C83400667038 /* GSPDBalloonView.m */,
+				027277021C05C83400667038 /* GSPDSegmentedBarSegment.h */,
+				027277031C05C83400667038 /* GSPDSegmentedBarSegment.m */,
+				027276F71C05B66A00667038 /* GSPDSegmentedBarView.h */,
+				027276F81C05B66A00667038 /* GSPDSegmentedBarView.m */,
+			);
+			path = GSPDSegmentedBarView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +296,9 @@
 				027276CB1C05B5C700667038 /* ViewController.m in Sources */,
 				027276C81C05B5C700667038 /* AppDelegate.m in Sources */,
 				027276C51C05B5C700667038 /* main.m in Sources */,
+				027276F91C05B66A00667038 /* GSPDSegmentedBarView.m in Sources */,
+				027277041C05C83400667038 /* GSPDBalloonView.m in Sources */,
+				027277051C05C83400667038 /* GSPDSegmentedBarSegment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

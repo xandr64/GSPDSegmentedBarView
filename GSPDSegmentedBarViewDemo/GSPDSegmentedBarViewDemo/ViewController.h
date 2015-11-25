@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class GSPDBalloonView;
+
 @interface ViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet GSPDBalloonView *balloonView;
 
 @end
-

@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "GSPDBalloonView.h"
+#import <CoreText/CTStringAttributes.h>
 
 @interface ViewController ()
 
@@ -16,7 +18,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSMutableAttributedString *value = [[NSMutableAttributedString alloc] initWithString:@"(a + b)2 = a2 + 2ab + b2"
+                                                                              attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14],
+                                                                                           NSBackgroundColorAttributeName : [UIColor clearColor],
+                                                                                           NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    NSDictionary *superscriptAttributes = @{NSFontAttributeName : [UIFont systemFontOfSize:14],
+                                            NSBackgroundColorAttributeName : [UIColor clearColor],
+                                            NSForegroundColorAttributeName : [UIColor whiteColor],
+                                            (NSString *)kCTSuperscriptAttributeName : @(1)};
+    [value setAttributes:superscriptAttributes range:NSMakeRange(7, 1)];
+    [value setAttributes:superscriptAttributes range:NSMakeRange(12, 1)];
+    [value setAttributes:superscriptAttributes range:NSMakeRange(23, 1)];
+    self.balloonView.attributedText = value;
+    self.balloonView.balloonBackroundColor = [UIColor redColor];
 }
 
 - (void)didReceiveMemoryWarning {
