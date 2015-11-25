@@ -9,9 +9,13 @@
 #import "ViewController.h"
 #import "GSPDBalloonView.h"
 #import "GSPDAngularView.h"
+#import "GSPDSegmentedBarView.h"
+#import "GSPDSegmentedBarSegment.h"
 #import <CoreText/CTStringAttributes.h>
 
 @interface ViewController ()
+
+@property (nonatomic, strong) GSPDSegmentedBarView *segmentedBarView;
 
 @end
 
@@ -40,6 +44,13 @@
     self.angularView.customBackgroundColor = [UIColor yellowColor];
     self.angularView.anglularPartWidth = 25.0f;
     self.angularView.style = GSPDAngularViewStyleTwoSided;
+    
+    GSPDSegmentedBarSegment *segment1 = [[GSPDSegmentedBarSegment alloc] initWithMinValue:@(0.0) maxValue:@(1.0) color:[UIColor greenColor]];
+    GSPDSegmentedBarSegment *segment2 = [[GSPDSegmentedBarSegment alloc] initWithMinValue:@(1.0) maxValue:@(2.0) color:[UIColor redColor]];
+    GSPDSegmentedBarSegment *segment3 = [[GSPDSegmentedBarSegment alloc] initWithMinValue:@(2.0) maxValue:@(3.0) color:[UIColor yellowColor]];
+    self.segmentedBarView = [[GSPDSegmentedBarView alloc] initWithValue:@(1.5) unit:nil segments:@[segment1, segment2, segment3]];
+    self.segmentedBarView.frame = (CGRect){{0, self.view.frame.size.height - 200}, {self.view.frame.size.width, 60}};
+    [self.view addSubview:self.segmentedBarView];
 }
 
 - (void)didReceiveMemoryWarning {

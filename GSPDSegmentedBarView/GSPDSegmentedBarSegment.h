@@ -1,11 +1,3 @@
-//
-//  GSPDSegmentedBarSegment.h
-//  GSPDSegmentedBarViewDemo
-//
-//  Created by Alexander Kiyaykin on 25.11.15.
-//  Copyright © 2015 GSPD. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 
 @interface GSPDSegmentedBarSegment : NSObject
@@ -17,6 +9,8 @@
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, assign) BOOL containsMinValue;
 @property (nonatomic, assign) BOOL containsMaxValue;
+
+- (instancetype)initWithMinValue:(NSNumber *)minValue maxValue:(NSNumber *)maxValue color:(UIColor *)color;
 
 - (BOOL)isPoint;
 

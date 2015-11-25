@@ -1,11 +1,3 @@
-//
-//  GSPDAngularView.h
-//  GSPDSegmentedBarViewDemo
-//
-//  Created by Alexander Kiyaykin on 25.11.15.
-//  Copyright © 2015 GSPD. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSUInteger, GSPDAngularViewStyle) {
@@ -20,5 +12,8 @@ typedef NS_ENUM(NSUInteger, GSPDAngularViewStyle) {
 @property (nonatomic, assign) CGFloat anglularPartWidth;
 @property (nonatomic, assign) GSPDAngularViewStyle style;
 @property (nonatomic, assign) UIColor *customBackgroundColor;
+
+- (instancetype)initWithAngularPartWidth:(CGFloat)angularPartWidth style:(GSPDAngularViewStyle)style backgroundColor:(UIColor *)backgroundColor;
+- (instancetype)initWithStyle:(GSPDAngularViewStyle)style;
 
 @end

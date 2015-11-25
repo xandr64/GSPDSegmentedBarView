@@ -1,11 +1,3 @@
-//
-//  GSPDAngularView.m
-//  GSPDSegmentedBarViewDemo
-//
-//  Created by Alexander Kiyaykin on 25.11.15.
-//  Copyright © 2015 GSPD. All rights reserved.
-//
-
 #import "GSPDAngularView.h"
 
 @implementation GSPDAngularView
@@ -18,6 +10,21 @@
         [super setBackgroundColor:[UIColor clearColor]];
     }
     return self;
+}
+
+- (instancetype)initWithAngularPartWidth:(CGFloat)angularPartWidth style:(GSPDAngularViewStyle)style backgroundColor:(UIColor *)backgroundColor {
+    self = [super init];
+    if (self) {
+        self.anglularPartWidth = angularPartWidth;
+        self.style = style;
+        self.customBackgroundColor = backgroundColor;
+        [super setBackgroundColor:[UIColor clearColor]];
+    }
+    return self;
+}
+
+- (instancetype)initWithStyle:(GSPDAngularViewStyle)style {
+    return [self initWithAngularPartWidth:10.0f style:style backgroundColor:[UIColor greenColor]];
 }
 
 - (void)drawRect:(CGRect)rect {
