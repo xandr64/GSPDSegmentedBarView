@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @class GSPDBalloonView;
+@class GSPDAngularView;
 
 @interface ViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet GSPDBalloonView *balloonView;
+@property (strong, nonatomic) IBOutlet GSPDAngularView *angularView;
 
 @end

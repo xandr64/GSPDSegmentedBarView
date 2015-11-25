@@ -18,6 +18,7 @@
 		027276F91C05B66A00667038 /* GSPDSegmentedBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 027276F81C05B66A00667038 /* GSPDSegmentedBarView.m */; };
 		027277041C05C83400667038 /* GSPDBalloonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 027277011C05C83400667038 /* GSPDBalloonView.m */; };
 		027277051C05C83400667038 /* GSPDSegmentedBarSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 027277031C05C83400667038 /* GSPDSegmentedBarSegment.m */; };
+		0272770B1C05F44400667038 /* GSPDAngularView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0272770A1C05F44400667038 /* GSPDAngularView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,12 +55,14 @@
 		027276E41C05B5C700667038 /* GSPDSegmentedBarViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GSPDSegmentedBarViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		027276E81C05B5C700667038 /* GSPDSegmentedBarViewDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSPDSegmentedBarViewDemoUITests.m; sourceTree = "<group>"; };
 		027276EA1C05B5C700667038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		027276F71C05B66A00667038 /* GSPDSegmentedBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSPDSegmentedBarView.h; path = /Users/xandr64/Projects/GSPDSegmentedBarView/GSPDSegmentedBarView/GSPDSegmentedBarView.h; sourceTree = "<absolute>"; };
-		027276F81C05B66A00667038 /* GSPDSegmentedBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSPDSegmentedBarView.m; path = /Users/xandr64/Projects/GSPDSegmentedBarView/GSPDSegmentedBarView/GSPDSegmentedBarView.m; sourceTree = "<absolute>"; };
-		027277001C05C83400667038 /* GSPDBalloonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSPDBalloonView.h; path = /Users/xandr64/Projects/GSPDSegmentedBarView/GSPDSegmentedBarView/GSPDBalloonView.h; sourceTree = "<absolute>"; };
-		027277011C05C83400667038 /* GSPDBalloonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSPDBalloonView.m; path = /Users/xandr64/Projects/GSPDSegmentedBarView/GSPDSegmentedBarView/GSPDBalloonView.m; sourceTree = "<absolute>"; };
-		027277021C05C83400667038 /* GSPDSegmentedBarSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSPDSegmentedBarSegment.h; path = /Users/xandr64/Projects/GSPDSegmentedBarView/GSPDSegmentedBarView/GSPDSegmentedBarSegment.h; sourceTree = "<absolute>"; };
-		027277031C05C83400667038 /* GSPDSegmentedBarSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSPDSegmentedBarSegment.m; path = /Users/xandr64/Projects/GSPDSegmentedBarView/GSPDSegmentedBarView/GSPDSegmentedBarSegment.m; sourceTree = "<absolute>"; };
+		027276F71C05B66A00667038 /* GSPDSegmentedBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSPDSegmentedBarView.h; sourceTree = "<group>"; };
+		027276F81C05B66A00667038 /* GSPDSegmentedBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSPDSegmentedBarView.m; sourceTree = "<group>"; };
+		027277001C05C83400667038 /* GSPDBalloonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSPDBalloonView.h; sourceTree = "<group>"; };
+		027277011C05C83400667038 /* GSPDBalloonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSPDBalloonView.m; sourceTree = "<group>"; };
+		027277021C05C83400667038 /* GSPDSegmentedBarSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSPDSegmentedBarSegment.h; sourceTree = "<group>"; };
+		027277031C05C83400667038 /* GSPDSegmentedBarSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSPDSegmentedBarSegment.m; sourceTree = "<group>"; };
+		027277091C05F44400667038 /* GSPDAngularView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSPDAngularView.h; sourceTree = "<group>"; };
+		0272770A1C05F44400667038 /* GSPDAngularView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSPDAngularView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,8 +162,11 @@
 				027277031C05C83400667038 /* GSPDSegmentedBarSegment.m */,
 				027276F71C05B66A00667038 /* GSPDSegmentedBarView.h */,
 				027276F81C05B66A00667038 /* GSPDSegmentedBarView.m */,
+				027277091C05F44400667038 /* GSPDAngularView.h */,
+				0272770A1C05F44400667038 /* GSPDAngularView.m */,
 			);
-			path = GSPDSegmentedBarView;
+			name = GSPDSegmentedBarView;
+			path = ../../GSPDSegmentedBarView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				027276CB1C05B5C700667038 /* ViewController.m in Sources */,
+				0272770B1C05F44400667038 /* GSPDAngularView.m in Sources */,
 				027276C81C05B5C700667038 /* AppDelegate.m in Sources */,
 				027276C51C05B5C700667038 /* main.m in Sources */,
 				027276F91C05B66A00667038 /* GSPDSegmentedBarView.m in Sources */,

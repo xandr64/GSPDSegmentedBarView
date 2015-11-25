@@ -24,14 +24,13 @@
         margin = 4.0f;
         self.arrowHeight = 10.0f;
         self.cornerRadius = 5.0f;
-        self.balloonBackroundColor = [UIColor greenColor];
+        self.balloonBackgroundColor = [UIColor greenColor];
         [super setBackgroundColor:[UIColor clearColor]];
         
         self.textField = [[UITextField alloc] initWithFrame:CGRectNull];
-        self.textField.text = @"Test text";
+        self.textField.userInteractionEnabled = NO;
         self.textField.textAlignment = NSTextAlignmentCenter;
         [self addSubview:self.textField];
-        
     }
     return self;
 }
@@ -43,11 +42,9 @@
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [UIColor clearColor].CGColor);
-    CGContextFillRect(context, rect);
     CGContextAddPath(context, [self arrowPathForRect:rect]);
     CGContextAddPath(context, [self roundedRectPathForRect:rect]);
-    CGContextSetFillColorWithColor(context, self.balloonBackroundColor.CGColor);
+    CGContextSetFillColorWithColor(context, self.balloonBackgroundColor.CGColor);
     CGContextFillPath(context);
 }
 
@@ -73,11 +70,11 @@
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor {
-    self.balloonBackroundColor = backgroundColor;
+    self.balloonBackgroundColor = backgroundColor;
 }
 
-- (void)setBalloonBackroundColor:(UIColor *)balloonBackroundColor {
-    _balloonBackroundColor = balloonBackroundColor;
+- (void)setBalloonBackgroundColor:(UIColor *)balloonBackgroundColor {
+    _balloonBackgroundColor = balloonBackgroundColor;
     [self setNeedsDisplay];
 }
 

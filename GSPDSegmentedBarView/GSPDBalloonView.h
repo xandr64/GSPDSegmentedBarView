@@ -13,6 +13,6 @@
 @property (nonatomic, assign) CGFloat arrowHeight;
 @property (nonatomic, assign) CGFloat cornerRadius;
 @property (nonatomic, strong) NSAttributedString *attributedText;
-@property (nonatomic, strong) UIColor *balloonBackroundColor;
+@property (nonatomic, strong) UIColor *balloonBackgroundColor;
 
 @end

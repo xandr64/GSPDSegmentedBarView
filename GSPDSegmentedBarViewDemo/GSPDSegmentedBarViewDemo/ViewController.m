@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "GSPDBalloonView.h"
+#import "GSPDAngularView.h"
 #import <CoreText/CTStringAttributes.h>
 
 @interface ViewController ()
@@ -34,7 +35,11 @@
     [value setAttributes:superscriptAttributes range:NSMakeRange(12, 1)];
     [value setAttributes:superscriptAttributes range:NSMakeRange(23, 1)];
     self.balloonView.attributedText = value;
-    self.balloonView.balloonBackroundColor = [UIColor redColor];
+    self.balloonView.balloonBackgroundColor = [UIColor redColor];
+    
+    self.angularView.customBackgroundColor = [UIColor yellowColor];
+    self.angularView.anglularPartWidth = 25.0f;
+    self.angularView.style = GSPDAngularViewStyleTwoSided;
 }
 
 - (void)didReceiveMemoryWarning {
