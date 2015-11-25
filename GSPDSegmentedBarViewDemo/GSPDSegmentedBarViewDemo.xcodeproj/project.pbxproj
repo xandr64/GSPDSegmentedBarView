@@ -54,12 +54,12 @@
 		027276E41C05B5C700667038 /* GSPDSegmentedBarViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GSPDSegmentedBarViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		027276E81C05B5C700667038 /* GSPDSegmentedBarViewDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSPDSegmentedBarViewDemoUITests.m; sourceTree = "<group>"; };
 		027276EA1C05B5C700667038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		027276F71C05B66A00667038 /* GSPDSegmentedBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSPDSegmentedBarView.h; path = ../../../GSPDSegmentedBarView/GSPDSegmentedBarView.h; sourceTree = "<group>"; };
-		027276F81C05B66A00667038 /* GSPDSegmentedBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSPDSegmentedBarView.m; path = ../../../GSPDSegmentedBarView/GSPDSegmentedBarView.m; sourceTree = "<group>"; };
-		027277001C05C83400667038 /* GSPDBalloonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSPDBalloonView.h; path = ../../../GSPDSegmentedBarView/GSPDBalloonView.h; sourceTree = "<group>"; };
-		027277011C05C83400667038 /* GSPDBalloonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSPDBalloonView.m; path = ../../../GSPDSegmentedBarView/GSPDBalloonView.m; sourceTree = "<group>"; };
-		027277021C05C83400667038 /* GSPDSegmentedBarSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSPDSegmentedBarSegment.h; path = ../../../GSPDSegmentedBarView/GSPDSegmentedBarSegment.h; sourceTree = "<group>"; };
-		027277031C05C83400667038 /* GSPDSegmentedBarSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSPDSegmentedBarSegment.m; path = ../../../GSPDSegmentedBarView/GSPDSegmentedBarSegment.m; sourceTree = "<group>"; };
+		027276F71C05B66A00667038 /* GSPDSegmentedBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSPDSegmentedBarView.h; path = /Users/xandr64/Projects/GSPDSegmentedBarView/GSPDSegmentedBarView/GSPDSegmentedBarView.h; sourceTree = "<absolute>"; };
+		027276F81C05B66A00667038 /* GSPDSegmentedBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSPDSegmentedBarView.m; path = /Users/xandr64/Projects/GSPDSegmentedBarView/GSPDSegmentedBarView/GSPDSegmentedBarView.m; sourceTree = "<absolute>"; };
+		027277001C05C83400667038 /* GSPDBalloonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSPDBalloonView.h; path = /Users/xandr64/Projects/GSPDSegmentedBarView/GSPDSegmentedBarView/GSPDBalloonView.h; sourceTree = "<absolute>"; };
+		027277011C05C83400667038 /* GSPDBalloonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSPDBalloonView.m; path = /Users/xandr64/Projects/GSPDSegmentedBarView/GSPDSegmentedBarView/GSPDBalloonView.m; sourceTree = "<absolute>"; };
+		027277021C05C83400667038 /* GSPDSegmentedBarSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSPDSegmentedBarSegment.h; path = /Users/xandr64/Projects/GSPDSegmentedBarView/GSPDSegmentedBarView/GSPDSegmentedBarSegment.h; sourceTree = "<absolute>"; };
+		027277031C05C83400667038 /* GSPDSegmentedBarSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSPDSegmentedBarSegment.m; path = /Users/xandr64/Projects/GSPDSegmentedBarView/GSPDSegmentedBarView/GSPDSegmentedBarSegment.m; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -522,6 +522,7 @@
 				027276EF1C05B5C700667038 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		027276F01C05B5C700667038 /* Build configuration list for PBXNativeTarget "GSPDSegmentedBarViewDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +531,7 @@
 				027276F21C05B5C700667038 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		027276F31C05B5C700667038 /* Build configuration list for PBXNativeTarget "GSPDSegmentedBarViewDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +540,7 @@
 				027276F51C05B5C700667038 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
