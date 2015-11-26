@@ -10,10 +10,12 @@
 
 @class GSPDBalloonView;
 @class GSPDAngularView;
+@class GSPDSegmentedBarView;
 
 @interface ViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet GSPDBalloonView *balloonView;
 @property (strong, nonatomic) IBOutlet GSPDAngularView *angularView;
+@property (strong, nonatomic) IBOutlet GSPDSegmentedBarView *segmentedBarViewFromStoryboard;
 
 @end

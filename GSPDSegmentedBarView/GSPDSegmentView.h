@@ -13,6 +13,11 @@ typedef NS_ENUM(NSUInteger, GSPDSegmentViewAngleStyle) {
 
 @property (nonatomic, strong) GSPDSegmentedBarSegment *segment;
 @property (nonatomic, assign) GSPDSegmentViewAngleStyle angleStyle;
+@property (nonatomic, strong) UIColor *valuesTextColor;
+@property (nonatomic, strong) UIColor *descriptionsTextColor;
+@property (nonatomic, strong) UIFont *valuesFont;
+@property (nonatomic, strong) UIFont *descriptionsFont;
+@property (nonatomic, assign) CGFloat angularPartWidth;
 
 - (instancetype)initWithSegment:(GSPDSegmentedBarSegment *)segment angleStyle:(GSPDSegmentViewAngleStyle)style;
 

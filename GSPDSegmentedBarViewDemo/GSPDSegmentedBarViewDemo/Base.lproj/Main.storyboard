@@ -20,8 +20,8 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g3h-uc-qnN" customClass="GSPDBalloonView">
                                 <rect key="frame" x="180" y="98" width="200" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="DLp-4N-RXa"/>
-                                    <constraint firstAttribute="width" constant="200" id="kpg-7c-CDz"/>
+                                    <constraint firstAttribute="height" constant="32" id="DLp-4N-RXa"/>
+                                    <constraint firstAttribute="width" constant="72" id="kpg-7c-CDz"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8hj-oP-gvK" customClass="GSPDAngularView">
@@ -32,22 +32,34 @@
                                     <constraint firstAttribute="height" constant="50" id="I9E-RE-xjc"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="usW-jz-qp8" customClass="GSPDSegmentedBarView">
+                                <rect key="frame" x="0.0" y="270" width="600" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Cv4-t9-qmE"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8hj-oP-gvK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4wX-cB-9Cj"/>
+                            <constraint firstItem="8hj-oP-gvK" firstAttribute="top" secondItem="g3h-uc-qnN" secondAttribute="bottom" constant="15" id="BDg-83-bJf"/>
+                            <constraint firstItem="usW-jz-qp8" firstAttribute="top" secondItem="8hj-oP-gvK" secondAttribute="bottom" constant="15" id="BvN-02-PSa"/>
                             <constraint firstItem="8hj-oP-gvK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IbN-Vz-i4p"/>
                             <constraint firstItem="g3h-uc-qnN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="N63-Q1-U8c"/>
+                            <constraint firstItem="usW-jz-qp8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sOX-L2-w3g"/>
+                            <constraint firstAttribute="trailing" secondItem="usW-jz-qp8" secondAttribute="trailing" id="vze-eS-7s5"/>
                             <constraint firstItem="g3h-uc-qnN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wl1-Ud-Ikv"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="angularView" destination="8hj-oP-gvK" id="1JZ-ZL-lJX"/>
                         <outlet property="balloonView" destination="g3h-uc-qnN" id="IoR-d2-SNk"/>
+                        <outlet property="segmentedBarViewFromStoryboard" destination="usW-jz-qp8" id="olb-wo-TaS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="529" y="464"/>
         </scene>
     </scenes>
 </document>

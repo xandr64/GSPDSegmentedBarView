@@ -27,30 +27,32 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    NSMutableAttributedString *value = [[NSMutableAttributedString alloc] initWithString:@"(a + b)2 = a2 + 2ab + b2"
-                                                                              attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14],
+    NSMutableAttributedString *value = [[NSMutableAttributedString alloc] initWithString:@"1012/l"
+                                                                              attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:10],
                                                                                            NSBackgroundColorAttributeName : [UIColor clearColor],
                                                                                            NSForegroundColorAttributeName : [UIColor whiteColor]}];
-    NSDictionary *superscriptAttributes = @{NSFontAttributeName : [UIFont systemFontOfSize:14],
+    NSDictionary *superscriptAttributes = @{NSFontAttributeName : [UIFont systemFontOfSize:10],
                                             NSBackgroundColorAttributeName : [UIColor clearColor],
                                             NSForegroundColorAttributeName : [UIColor whiteColor],
                                             (NSString *)kCTSuperscriptAttributeName : @(1)};
-    [value setAttributes:superscriptAttributes range:NSMakeRange(7, 1)];
-    [value setAttributes:superscriptAttributes range:NSMakeRange(12, 1)];
-    [value setAttributes:superscriptAttributes range:NSMakeRange(23, 1)];
+    [value setAttributes:superscriptAttributes range:NSMakeRange(2, 2)];
     self.balloonView.attributedText = value;
-    self.balloonView.balloonBackgroundColor = [UIColor redColor];
     
     self.angularView.customBackgroundColor = [UIColor yellowColor];
     self.angularView.anglularPartWidth = 25.0f;
     self.angularView.style = GSPDAngularViewStyleTwoSided;
     
-    GSPDSegmentedBarSegment *segment1 = [[GSPDSegmentedBarSegment alloc] initWithMinValue:@(0.0) maxValue:@(1.0) color:[UIColor greenColor]];
-    GSPDSegmentedBarSegment *segment2 = [[GSPDSegmentedBarSegment alloc] initWithMinValue:@(1.0) maxValue:@(2.0) color:[UIColor redColor]];
-    GSPDSegmentedBarSegment *segment3 = [[GSPDSegmentedBarSegment alloc] initWithMinValue:@(2.0) maxValue:@(3.0) color:[UIColor yellowColor]];
-    self.segmentedBarView = [[GSPDSegmentedBarView alloc] initWithValue:@(1.5) unit:nil segments:@[segment1, segment2, segment3]];
-    self.segmentedBarView.frame = (CGRect){{0, self.view.frame.size.height - 200}, {self.view.frame.size.width, 60}};
+    GSPDSegmentedBarSegment *segment1 = [[GSPDSegmentedBarSegment alloc] initWithMinValue:@(0.1) maxValue:@(1.1) color:[UIColor colorWithRed:0.94 green:0.24 blue:0.18 alpha:1]];
+    segment1.segmentDescription = @"Segment 1";
+//    segment1.containsMaxValue = YES;
+    GSPDSegmentedBarSegment *segment2 = [[GSPDSegmentedBarSegment alloc] initWithMinValue:@(1.1) maxValue:@(2.1) color:[UIColor colorWithRed:0.55 green:0.78 blue:0.24 alpha:1]];
+//    segment2.containsMinValue = NO;
+    GSPDSegmentedBarSegment *segment3 = [[GSPDSegmentedBarSegment alloc] initWithMinValue:@(2.1) maxValue:@(3.1) color:[UIColor colorWithRed:0.94 green:0.24 blue:0.18 alpha:1]];
+    segment3.segmentDescription = @"Segment 3";
+    self.segmentedBarView = [[GSPDSegmentedBarView alloc] initWithValue:@(1.2) unit:value segments:@[segment1, segment2, segment3]];
+    self.segmentedBarView.frame = (CGRect){{0, self.view.frame.size.height - 200}, {self.view.frame.size.width, 85}};
     [self.view addSubview:self.segmentedBarView];
+    
 }
 
 - (void)didReceiveMemoryWarning {
