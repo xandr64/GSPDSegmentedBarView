@@ -17,6 +17,8 @@ static NSInteger const NO_VALUE_SEGMENT_INDEX = -1;
     CGFloat balloonViewWidth;
     CGFloat arrowViewHeight;
     CGFloat segmentViewHeight;
+    UIFont *balloonValueFont;
+    UIFont *balloonUnitFont;
 }
 
 - (instancetype)initWithValue:(NSNumber *)value unit:(NSAttributedString *)unit segments:(NSArray *)segments {
@@ -30,6 +32,7 @@ static NSInteger const NO_VALUE_SEGMENT_INDEX = -1;
         _unit = unit;
         _segments = segments;
         _valueSegmentIndex = index;
+        _valueSegmentText = @"Current Value";
         _distanceBetweenSegments = 3.0f;
         _noSegmentsText = @"Empty";
         _noSegmentsBackgroundColor = [UIColor lightGrayColor];
@@ -37,6 +40,13 @@ static NSInteger const NO_VALUE_SEGMENT_INDEX = -1;
         balloonViewWidth = 72.0f;
         arrowViewHeight = 5.0f;
         segmentViewHeight = 48.0f;
+        _valuesTextColor = [UIColor whiteColor];
+        _descriptionsTextColor = [UIColor lightGrayColor];
+        _balloonTextColor = [UIColor whiteColor];
+        _valuesFont = [UIFont systemFontOfSize:12];
+        _descriptionsFont = [UIFont systemFontOfSize:12];
+        balloonValueFont = [UIFont systemFontOfSize:12];
+        balloonUnitFont = [UIFont systemFontOfSize:10];
         [self generateSegmentViewsForSegments];
         [self generateValueView];
     }
@@ -50,6 +60,7 @@ static NSInteger const NO_VALUE_SEGMENT_INDEX = -1;
         _unit = nil;
         _segments = nil;
         _valueSegmentIndex = NO_VALUE_SEGMENT_INDEX;
+        _valueSegmentText = @"Current Value";
         _distanceBetweenSegments = 3.0f;
         _noSegmentsText = @"Empty";
         _noSegmentsBackgroundColor = [UIColor lightGrayColor];
@@ -57,6 +68,41 @@ static NSInteger const NO_VALUE_SEGMENT_INDEX = -1;
         balloonViewWidth = 72.0f;
         arrowViewHeight = 5.0f;
         segmentViewHeight = 48.0f;
+        _valuesTextColor = [UIColor whiteColor];
+        _descriptionsTextColor = [UIColor lightGrayColor];
+        _balloonTextColor = [UIColor whiteColor];
+        _valuesFont = [UIFont systemFontOfSize:12];
+        _descriptionsFont = [UIFont systemFontOfSize:12];
+        balloonValueFont = [UIFont systemFontOfSize:12];
+        balloonUnitFont = [UIFont systemFontOfSize:10];
+        [self generateSegmentViewsForSegments];
+        [self generateValueView];
+    }
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        _value = nil;
+        _unit = nil;
+        _segments = nil;
+        _valueSegmentIndex = NO_VALUE_SEGMENT_INDEX;
+        _valueSegmentText = @"Current Value";
+        _distanceBetweenSegments = 3.0f;
+        _noSegmentsText = @"Empty";
+        _noSegmentsBackgroundColor = [UIColor lightGrayColor];
+        balloonViewHeight = 32.0f;
+        balloonViewWidth = 72.0f;
+        arrowViewHeight = 5.0f;
+        segmentViewHeight = 48.0f;
+        _valuesTextColor = [UIColor whiteColor];
+        _descriptionsTextColor = [UIColor lightGrayColor];
+        _balloonTextColor = [UIColor whiteColor];
+        _valuesFont = [UIFont systemFontOfSize:12];
+        _descriptionsFont = [UIFont systemFontOfSize:12];
+        balloonValueFont = [UIFont systemFontOfSize:12];
+        balloonUnitFont = [UIFont systemFontOfSize:10];
         [self generateSegmentViewsForSegments];
         [self generateValueView];
     }
@@ -144,21 +190,68 @@ static NSInteger const NO_VALUE_SEGMENT_INDEX = -1;
 
 - (void)generateValueView {
     [self.valueView removeFromSuperview];
-    self.valueView = [[GSPDBalloonView alloc] initWithFrame:CGRectNull];
-    //TODO: add value + unit and customize
-    [self addSubview:self.valueView];
+    if (_value) {
+        self.valueView = [[GSPDBalloonView alloc] initWithFrame:CGRectNull];
+        //TODO: add value + unit and customize
+        NSAttributedString *valueUnitString = [self generateValueUnitString];
+        self.valueView.attributedText = valueUnitString;
+        [self addSubview:self.valueView];
+    } else {
+        self.valueView = nil;
+    }
     [self setNeedsLayout];
 }
 
+- (NSAttributedString *)generateValueUnitString {
+    NSMutableAttributedString *valueUnitString = [[NSMutableAttributedString alloc] init];
+    NSMutableDictionary *valueAttributes = [@{NSFontAttributeName : balloonValueFont,
+                                              NSForegroundColorAttributeName : _balloonTextColor,
+                                              NSBackgroundColorAttributeName : [UIColor clearColor]} mutableCopy];
+    if (self.valueSegmentIndex != NO_VALUE_SEGMENT_INDEX) {
+        [valueAttributes setObject:[UIFont systemFontOfSize:9] forKey:NSFontAttributeName];
+        [valueUnitString appendAttributedString:[[NSAttributedString alloc] initWithString:_valueSegmentText attributes:valueAttributes]];
+    } else {
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        formatter.numberStyle = NSNumberFormatterDecimalStyle;
+        formatter.maximumFractionDigits = 4;
+        [valueUnitString appendAttributedString:[[NSAttributedString alloc] initWithString:[formatter stringFromNumber:_value]
+                                                                                attributes:valueAttributes]];
+        if (_unit) {
+            NSMutableAttributedString *mutableUnit = [_unit mutableCopy];
+            [valueUnitString appendAttributedString:[[NSAttributedString alloc] initWithString:@" " attributes:valueAttributes]];
+            [mutableUnit enumerateAttributesInRange:NSMakeRange(0, _unit.length) options:NSAttributedStringEnumerationReverse usingBlock:^(NSDictionary<NSString *,id> * _Nonnull attrs, NSRange range, BOOL * _Nonnull stop) {
+                NSMutableDictionary *mutableAttributes = [NSMutableDictionary dictionaryWithDictionary:attrs];
+                [mutableAttributes setObject:balloonUnitFont forKey:NSFontAttributeName];
+                [mutableUnit setAttributes:mutableAttributes range:range];
+            }];
+            [valueUnitString appendAttributedString:mutableUnit];
+        }
+    }
+    return valueUnitString;
+}
+
 - (void)layoutSubviews {
+    CGFloat segmentViewsYOffset;
+    if (self.valueView) {
+        segmentViewsYOffset = balloonViewHeight + arrowViewHeight;
+    } else {
+        segmentViewsYOffset = 0;
+    }
     NSUInteger segmentViewsCount = _segmentViews.count;
     CGFloat segmentViewWidth = (self.frame.size.width - (segmentViewsCount - 1) * self.distanceBetweenSegments) / segmentViewsCount;
     NSUInteger index = 0;
+    CGFloat minSegmentViewBottomPadding = CGFLOAT_MAX;
     for (GSPDSegmentView *segmentView in _segmentViews) {
-        segmentView.frame = (CGRect){{index * (segmentViewWidth + self.distanceBetweenSegments), balloonViewHeight + arrowViewHeight}, {segmentViewWidth, segmentViewHeight}};
-        NSLog(@"%lu : %@", index, NSStringFromCGRect(segmentView.frame));
+        segmentView.frame = (CGRect){{index * (segmentViewWidth + self.distanceBetweenSegments), segmentViewsYOffset}, {segmentViewWidth, segmentViewHeight}};
+        if (segmentView.bottomPadding < minSegmentViewBottomPadding) {
+            minSegmentViewBottomPadding = segmentView.bottomPadding;
+        }
         index++;
     }
+    CGSize expectedSize = self.frame.size;
+    CGSize realSize = (CGSize){self.frame.size.width, segmentViewsYOffset + segmentViewHeight};
+    _bottomPadding = expectedSize.height - realSize.height;
+    
     if (self.valueSegmentIndex != NO_VALUE_SEGMENT_INDEX) {
         self.valueView.arrowEnabled = YES;
         self.valueView.frame = (CGRect){{self.valueSegmentIndex * (segmentViewWidth + self.distanceBetweenSegments) + segmentViewWidth / 2 - balloonViewWidth / 2, 0}, {balloonViewWidth, balloonViewHeight + arrowViewHeight}};
@@ -170,7 +263,6 @@ static NSInteger const NO_VALUE_SEGMENT_INDEX = -1;
         } else {
             self.valueView.arrowEnabled = YES;
             CGFloat offset;
-//            CGFloat offset = [self offsetForValue:self.value insideSegmentWithIndex:segmentIndex withWidth:segmentViewWidth];
             GSPDSegmentView *segmentViewForIndex = self.segmentViews[segmentIndex];
             if (segmentIndex == 0) {
                 if (self.segments.count == 1) {
@@ -185,10 +277,25 @@ static NSInteger const NO_VALUE_SEGMENT_INDEX = -1;
                     offset = [self offsetForValue:self.value insideSegmentWithIndex:segmentIndex withWidth:segmentViewWidth - segmentViewForIndex.angularPartWidth];
                 }
             }
-            self.valueView.frame = (CGRect){{segmentIndex * (segmentViewWidth + self.distanceBetweenSegments) + offset - balloonViewWidth / 2, 0}, {balloonViewWidth, balloonViewHeight+ arrowViewHeight}};
+            CGRect virtualValueViewFrame = (CGRect){{segmentIndex * (segmentViewWidth + self.distanceBetweenSegments) + offset - balloonViewWidth / 2, 0}, {balloonViewWidth, balloonViewHeight+ arrowViewHeight}};
+            CGFloat xOffset;
+            if (virtualValueViewFrame.origin.x < 0) {
+                xOffset = virtualValueViewFrame.origin.x;
+            } else if (virtualValueViewFrame.origin.x + virtualValueViewFrame.size.width > self.frame.size.width) {
+                xOffset = virtualValueViewFrame.origin.x + virtualValueViewFrame.size.width - self.frame.size.width;
+            } else {
+                xOffset = 0;
+            }
+            CGRect realValueViewFrame = (CGRect){{virtualValueViewFrame.origin.x - xOffset, virtualValueViewFrame.origin.y}, virtualValueViewFrame.size};
+            self.valueView.frame = realValueViewFrame;
+            self.valueView.arrowIndent = self.valueView.frame.size.width / 2 + xOffset;
         }
     }
-    NSLog(@"%@", NSStringFromCGRect(self.valueView.frame));
+}
+
+- (void)setValue:(NSNumber *)value {
+    _value = value;
+    [self generateValueView];
 }
 
 - (void)setDistanceBetweenSegments:(CGFloat)distanceBetweenSegments {
@@ -236,6 +343,14 @@ static NSInteger const NO_VALUE_SEGMENT_INDEX = -1;
     for (GSPDSegmentView *segmentView in _segmentViews) {
         segmentView.descriptionsFont = _descriptionsFont;
     }
+}
+
+- (BOOL)isFractionNumber:(NSNumber *)number {
+    double dValue = [number doubleValue];
+    if (dValue < 0.0)
+        return (dValue != ceil(dValue));
+    else
+        return (dValue != floor(dValue));
 }
 
 @end

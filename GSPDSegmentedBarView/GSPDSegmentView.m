@@ -30,6 +30,11 @@
 - (void)layoutSubviews {
     self.angularView.frame = (CGRect){{0, 0}, {self.frame.size.width, self.frame.size.height / 2}};
     self.valueTextField.frame = (CGRect){{self.angularView.anglularPartWidth, 0}, {self.angularView.frame.size.width - 2 * self.angularView.anglularPartWidth, self.angularView.frame.size.height}};
+    if (!_segment.segmentDescription || [_segment.description isEqualToString:@""]) {
+        _bottomPadding = self.frame.size.height / 2;
+    } else {
+        _bottomPadding = 0;
+    }
     self.descriptionTextField.frame = (CGRect){{self.angularView.anglularPartWidth, self.frame.size.height / 2}, {self.angularView.frame.size.width - 2 * self.angularView.anglularPartWidth, self.frame.size.height / 2}};
 }
 

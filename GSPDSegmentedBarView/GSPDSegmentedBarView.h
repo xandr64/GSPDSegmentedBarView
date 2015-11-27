@@ -7,7 +7,8 @@
 @property (nonatomic, strong) NSNumber *value;
 @property (nonatomic, strong) NSAttributedString *unit;
 @property (nonatomic, strong) NSArray *segments;
-@property (nonatomic) NSInteger valueSegmentIndex;
+@property (nonatomic, assign) NSInteger valueSegmentIndex;
+@property (nonatomic, strong) NSString *valueSegmentText;
 
 //Customize appearance
 @property (nonatomic, assign) CGFloat distanceBetweenSegments;
@@ -18,7 +19,9 @@
 @property (nonatomic, strong) UIColor *balloonTextColor;
 @property (nonatomic, strong) UIFont *valuesFont;
 @property (nonatomic, strong) UIFont *descriptionsFont;
-@property (nonatomic, strong) UIFont *balloonFont;
+
+//Readonly Properties
+@property (nonatomic, assign, readonly) CGFloat bottomPadding;
 
 - (instancetype)initWithValue:(NSNumber *)value unit:(NSAttributedString *)unit segments:(NSArray *)segments;
 - (void)addSegment:(GSPDSegmentedBarSegment *)segment;

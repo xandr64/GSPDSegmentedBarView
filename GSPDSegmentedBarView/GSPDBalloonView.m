@@ -49,7 +49,15 @@
 }
 
 - (void)layoutSubviews {
-    self.textField.frame = (CGRect){{0, 0}, {self.frame.size.width, self.frame.size.height - _arrowHeight - margin}};
+    CGRect attributedTextRect = [_attributedText boundingRectWithSize:(CGSize){self.frame.size.width, 1000} options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
+    CGFloat yOffset;
+    //Check normal string or taller string in case of using superscript text
+    if (attributedTextRect.size.height > 16) {
+        yOffset = 2;
+    } else {
+        yOffset = 0;
+    }
+    self.textField.frame = (CGRect){{0, (self.frame.size.height - _arrowHeight - attributedTextRect.size.height) / 2 - yOffset}, {self.frame.size.width, attributedTextRect.size.height}};
 }
 
 - (void)drawRect:(CGRect)rect {

@@ -18,6 +18,7 @@ typedef NS_ENUM(NSUInteger, GSPDSegmentViewAngleStyle) {
 @property (nonatomic, strong) UIFont *valuesFont;
 @property (nonatomic, strong) UIFont *descriptionsFont;
 @property (nonatomic, assign) CGFloat angularPartWidth;
+@property (nonatomic, assign, readonly) CGFloat bottomPadding;
 
 - (instancetype)initWithSegment:(GSPDSegmentedBarSegment *)segment angleStyle:(GSPDSegmentViewAngleStyle)style;
 

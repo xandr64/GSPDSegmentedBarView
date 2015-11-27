@@ -42,17 +42,23 @@
     self.angularView.anglularPartWidth = 25.0f;
     self.angularView.style = GSPDAngularViewStyleTwoSided;
     
-    GSPDSegmentedBarSegment *segment1 = [[GSPDSegmentedBarSegment alloc] initWithMinValue:@(0.1) maxValue:@(1.1) color:[UIColor colorWithRed:0.94 green:0.24 blue:0.18 alpha:1]];
+    GSPDSegmentedBarSegment *segment1 = [[GSPDSegmentedBarSegment alloc] initWithMinValue:@(0.1) maxValue:@(1) color:[UIColor colorWithRed:0.94 green:0.24 blue:0.18 alpha:1]];
     segment1.segmentDescription = @"Segment 1";
-//    segment1.containsMaxValue = YES;
+    segment1.sideTextStyle = GSPDSegmentedBarSegmentSideTextStyleOneSided;
     GSPDSegmentedBarSegment *segment2 = [[GSPDSegmentedBarSegment alloc] initWithMinValue:@(1.1) maxValue:@(2.1) color:[UIColor colorWithRed:0.55 green:0.78 blue:0.24 alpha:1]];
-//    segment2.containsMinValue = NO;
     GSPDSegmentedBarSegment *segment3 = [[GSPDSegmentedBarSegment alloc] initWithMinValue:@(2.1) maxValue:@(3.1) color:[UIColor colorWithRed:0.94 green:0.24 blue:0.18 alpha:1]];
     segment3.segmentDescription = @"Segment 3";
-    self.segmentedBarView = [[GSPDSegmentedBarView alloc] initWithValue:@(1.2) unit:value segments:@[segment1, segment2, segment3]];
+    segment3.sideTextStyle = GSPDSegmentedBarSegmentSideTextStyleTwoSided;
+    self.segmentedBarView = [[GSPDSegmentedBarView alloc] initWithValue:@(2.2) unit:nil segments:@[segment1, segment2, segment3]];
+    self.segmentedBarView.valueSegmentIndex = 1;
     self.segmentedBarView.frame = (CGRect){{0, self.view.frame.size.height - 200}, {self.view.frame.size.width, 85}};
+    self.segmentedBarView.value = @(0.1);
     [self.view addSubview:self.segmentedBarView];
     
+    GSPDSegmentedBarView *sbv = [[GSPDSegmentedBarView alloc] initWithFrame:CGRectNull];
+    sbv.frame = (CGRect){{0, self.view.frame.size.height - 110}, {self.view.frame.size.width, 185}};
+    sbv.segments = @[segment1];
+    [self.view addSubview:sbv];
 }
 
 - (void)didReceiveMemoryWarning {
