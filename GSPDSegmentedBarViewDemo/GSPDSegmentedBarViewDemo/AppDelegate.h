@@ -2,7 +2,7 @@
 //  AppDelegate.h
 //  GSPDSegmentedBarViewDemo
 //
-//  Created by Alexander Kiyaykin on 25.11.15.
+//  Created by Alexander Kiyaykin.
 //  Copyright © 2015 GSPD. All rights reserved.
 //
 

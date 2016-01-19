@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,43 +17,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g3h-uc-qnN" customClass="GSPDBalloonView">
-                                <rect key="frame" x="180" y="98" width="200" height="50"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhC-BQ-eDH">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="53a-h6-C5d" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="usW-jz-qp8" customClass="GSPDSegmentedBarView">
+                                                <rect key="frame" x="0.0" y="25" width="600" height="85"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="85" id="Cv4-t9-qmE"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="usW-jz-qp8" secondAttribute="trailing" id="1GJ-zT-eYw"/>
+                                            <constraint firstItem="usW-jz-qp8" firstAttribute="top" secondItem="53a-h6-C5d" secondAttribute="top" constant="25" id="8Vp-hS-nar"/>
+                                            <constraint firstItem="usW-jz-qp8" firstAttribute="leading" secondItem="53a-h6-C5d" secondAttribute="leading" id="aYV-Qj-ejf"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="DLp-4N-RXa"/>
-                                    <constraint firstAttribute="width" constant="72" id="kpg-7c-CDz"/>
+                                    <constraint firstAttribute="bottom" secondItem="53a-h6-C5d" secondAttribute="bottom" id="0gs-5C-Ilz"/>
+                                    <constraint firstItem="53a-h6-C5d" firstAttribute="top" secondItem="vhC-BQ-eDH" secondAttribute="top" id="C5j-oI-SDU"/>
+                                    <constraint firstItem="53a-h6-C5d" firstAttribute="leading" secondItem="vhC-BQ-eDH" secondAttribute="leading" id="mmQ-oU-onb"/>
+                                    <constraint firstAttribute="trailing" secondItem="53a-h6-C5d" secondAttribute="trailing" id="nPB-fP-Ckh"/>
                                 </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8hj-oP-gvK" customClass="GSPDAngularView">
-                                <rect key="frame" x="160" y="194" width="200" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="2Z7-K5-VPN"/>
-                                    <constraint firstAttribute="height" constant="50" id="I9E-RE-xjc"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="usW-jz-qp8" customClass="GSPDSegmentedBarView">
-                                <rect key="frame" x="0.0" y="270" width="600" height="60"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Cv4-t9-qmE"/>
-                                </constraints>
-                            </view>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8hj-oP-gvK" firstAttribute="top" secondItem="g3h-uc-qnN" secondAttribute="bottom" constant="15" id="BDg-83-bJf"/>
-                            <constraint firstItem="usW-jz-qp8" firstAttribute="top" secondItem="8hj-oP-gvK" secondAttribute="bottom" constant="15" id="BvN-02-PSa"/>
-                            <constraint firstItem="8hj-oP-gvK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IbN-Vz-i4p"/>
-                            <constraint firstItem="g3h-uc-qnN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="N63-Q1-U8c"/>
-                            <constraint firstItem="usW-jz-qp8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sOX-L2-w3g"/>
-                            <constraint firstAttribute="trailing" secondItem="usW-jz-qp8" secondAttribute="trailing" id="vze-eS-7s5"/>
-                            <constraint firstItem="g3h-uc-qnN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wl1-Ud-Ikv"/>
+                            <constraint firstItem="53a-h6-C5d" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="AhI-Z9-Z0h"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vhC-BQ-eDH" secondAttribute="bottom" id="BAL-YZ-a7s"/>
+                            <constraint firstItem="53a-h6-C5d" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="M22-Zf-KQc"/>
+                            <constraint firstAttribute="trailing" secondItem="vhC-BQ-eDH" secondAttribute="trailing" id="NGz-46-lOb"/>
+                            <constraint firstItem="vhC-BQ-eDH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="PUq-Z3-oS5"/>
+                            <constraint firstItem="vhC-BQ-eDH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QzQ-aC-Ybj"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="angularView" destination="8hj-oP-gvK" id="1JZ-ZL-lJX"/>
-                        <outlet property="balloonView" destination="g3h-uc-qnN" id="IoR-d2-SNk"/>
+                        <outlet property="scrollView" destination="vhC-BQ-eDH" id="Krx-6P-ghv"/>
                         <outlet property="segmentedBarViewFromStoryboard" destination="usW-jz-qp8" id="olb-wo-TaS"/>
                     </connections>
                 </viewController>

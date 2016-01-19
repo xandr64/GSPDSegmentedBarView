@@ -2,7 +2,7 @@
 //  ViewController.h
 //  GSPDSegmentedBarViewDemo
 //
-//  Created by Alexander Kiyaykin on 25.11.15.
+//  Created by Alexander Kiyaykin.
 //  Copyright © 2015 GSPD. All rights reserved.
 //
 
@@ -14,8 +14,6 @@
 
 @interface ViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet GSPDBalloonView *balloonView;
-@property (strong, nonatomic) IBOutlet GSPDAngularView *angularView;
 @property (strong, nonatomic) IBOutlet GSPDSegmentedBarView *segmentedBarViewFromStoryboard;
 
 @end
