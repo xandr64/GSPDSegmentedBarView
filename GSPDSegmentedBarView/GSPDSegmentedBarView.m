@@ -190,7 +190,7 @@ static NSInteger const NO_VALUE_SEGMENT_INDEX = -1;
 
 - (void)generateValueView {
     [self.valueView removeFromSuperview];
-    if (_value) {
+    if (_value || _valueSegmentIndex != NO_VALUE_SEGMENT_INDEX) {
         self.valueView = [[GSPDBalloonView alloc] initWithFrame:CGRectNull];
         //TODO: add value + unit and customize
         NSAttributedString *valueUnitString = [self generateValueUnitString];
@@ -213,7 +213,7 @@ static NSInteger const NO_VALUE_SEGMENT_INDEX = -1;
     } else {
         NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
         formatter.numberStyle = NSNumberFormatterDecimalStyle;
-        formatter.maximumFractionDigits = 4;
+        formatter.maximumFractionDigits = 3;
         [valueUnitString appendAttributedString:[[NSAttributedString alloc] initWithString:[formatter stringFromNumber:_value]
                                                                                 attributes:valueAttributes]];
         if (_unit) {
@@ -295,6 +295,16 @@ static NSInteger const NO_VALUE_SEGMENT_INDEX = -1;
 
 - (void)setValue:(NSNumber *)value {
     _value = value;
+    [self generateValueView];
+}
+
+- (void)setValueSegmentIndex:(NSInteger)valueSegmentIndex {
+    _valueSegmentIndex = valueSegmentIndex;
+    [self generateValueView];
+}
+
+- (void)setUnit:(NSAttributedString *)unit {
+    _unit = unit;
     [self generateValueView];
 }
 

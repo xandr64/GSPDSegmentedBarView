@@ -24,6 +24,5 @@
 @property (nonatomic, assign, readonly) CGFloat bottomPadding;
 
 - (instancetype)initWithValue:(NSNumber *)value unit:(NSAttributedString *)unit segments:(NSArray *)segments;
-- (void)addSegment:(GSPDSegmentedBarSegment *)segment;
 
 @end

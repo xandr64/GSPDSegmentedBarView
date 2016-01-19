@@ -5,8 +5,8 @@
 @interface GSPDSegmentView ()
 
 @property (nonatomic, strong) GSPDAngularView *angularView;
-@property (nonatomic, strong) UITextField *valueTextField;
-@property (nonatomic, strong) UITextField *descriptionTextField;
+@property (nonatomic, strong) UILabel *valueTextField;
+@property (nonatomic, strong) UILabel *descriptionTextField;
 
 @end
 
@@ -29,37 +29,41 @@
 
 - (void)layoutSubviews {
     self.angularView.frame = (CGRect){{0, 0}, {self.frame.size.width, self.frame.size.height / 2}};
-    self.valueTextField.frame = (CGRect){{self.angularView.anglularPartWidth, 0}, {self.angularView.frame.size.width - 2 * self.angularView.anglularPartWidth, self.angularView.frame.size.height}};
+    self.valueTextField.frame = (CGRect){{self.angularView.anglularPartWidth / 2, 0}, {self.angularView.frame.size.width - self.angularView.anglularPartWidth, self.angularView.frame.size.height}};
     if (!_segment.segmentDescription || [_segment.description isEqualToString:@""]) {
         _bottomPadding = self.frame.size.height / 2;
     } else {
         _bottomPadding = 0;
     }
-    self.descriptionTextField.frame = (CGRect){{self.angularView.anglularPartWidth, self.frame.size.height / 2}, {self.angularView.frame.size.width - 2 * self.angularView.anglularPartWidth, self.frame.size.height / 2}};
+    self.descriptionTextField.frame = (CGRect){{self.angularView.anglularPartWidth / 2, self.frame.size.height / 2}, {self.angularView.frame.size.width - self.angularView.anglularPartWidth, self.frame.size.height / 2}};
 }
 
 - (void)generateLayout {
     self.angularView = [[GSPDAngularView alloc] initWithAngularPartWidth:_angularPartWidth style:(GSPDAngularViewStyle)_angleStyle backgroundColor:_segment.color];
     [self addSubview:self.angularView];
-    self.valueTextField = [[UITextField alloc] initWithFrame:CGRectNull];
+    self.valueTextField = [[UILabel alloc] initWithFrame:CGRectNull];
     self.valueTextField.textAlignment = NSTextAlignmentCenter;
+    self.valueTextField.lineBreakMode = NSLineBreakByClipping;
     NSString *valueText;
     if (_segment.text && ![_segment.text isEqualToString:@""]) {
         valueText = _segment.text;
     } else {
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        formatter.numberStyle = NSNumberFormatterDecimalStyle;
+        formatter.maximumFractionDigits = 3;
         switch (_segment.sideTextStyle) {
             case GSPDSegmentedBarSegmentSideTextStyleOneSided: {
                 if (_angleStyle == GSPDSegmentViewAngleStyleLeftSided) {
-                    valueText = [NSString stringWithFormat:@"< %@", _segment.maxValue];
+                    valueText = [NSString stringWithFormat:@"<%@", [formatter stringFromNumber:_segment.maxValue]];
                 } else if (_angleStyle == GSPDSegmentViewAngleStyleRightSided) {
-                    valueText = [NSString stringWithFormat:@"> %@", _segment.minValue];
+                    valueText = [NSString stringWithFormat:@">%@", [formatter stringFromNumber:_segment.minValue]];
                 } else {
-                    valueText = [NSString stringWithFormat:@"%@ - %@", _segment.minValue, _segment.maxValue];
+                    valueText = [NSString stringWithFormat:@"%@-%@", [formatter stringFromNumber:_segment.minValue], [formatter stringFromNumber:_segment.maxValue]];
                 }
             }
                 break;
             case GSPDSegmentedBarSegmentSideTextStyleTwoSided:{
-                valueText = [NSString stringWithFormat:@"%@ - %@", _segment.minValue, _segment.maxValue];
+                valueText = [NSString stringWithFormat:@"%@-%@", [formatter stringFromNumber:_segment.minValue], [formatter stringFromNumber:_segment.maxValue]];
             }
                 break;
             default:
@@ -69,13 +73,16 @@
     self.valueTextField.text = valueText;
     self.valueTextField.textColor = _valuesTextColor;
     self.valueTextField.font = _valuesFont;
+    self.valueTextField.userInteractionEnabled = NO;
     [self addSubview:self.valueTextField];
     
-    self.descriptionTextField = [[UITextField alloc] initWithFrame:CGRectNull];
+    self.descriptionTextField = [[UILabel alloc] initWithFrame:CGRectNull];
     self.descriptionTextField.textAlignment = NSTextAlignmentCenter;
+    self.descriptionTextField.lineBreakMode = NSLineBreakByClipping;
     self.descriptionTextField.text = _segment.segmentDescription;
     self.descriptionTextField.textColor = _descriptionsTextColor;
     self.descriptionTextField.font = _descriptionsFont;
+    self.descriptionTextField.userInteractionEnabled = NO;
     [self addSubview:self.descriptionTextField];
 }
 

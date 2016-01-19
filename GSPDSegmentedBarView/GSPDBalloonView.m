@@ -24,6 +24,7 @@
         self.textField = [[UITextField alloc] initWithFrame:CGRectNull];
         self.textField.userInteractionEnabled = NO;
         self.textField.textAlignment = NSTextAlignmentCenter;
+        self.textField.userInteractionEnabled = NO;
         [self addSubview:self.textField];
     }
     return self;
@@ -43,6 +44,7 @@
         self.textField = [[UITextField alloc] initWithFrame:CGRectNull];
         self.textField.userInteractionEnabled = NO;
         self.textField.textAlignment = NSTextAlignmentCenter;
+        self.textField.userInteractionEnabled = NO;
         [self addSubview:self.textField];
     }
     return self;
@@ -76,8 +78,8 @@
         _arrowIndent = rect.size.width / 2;
     }
     CGPoint bottomArrowPoint = CGPointMake(_arrowIndent, rect.size.height);
-    CGPoint leftArrowPoint = CGPointMake(bottomArrowPoint.x - _arrowHeight / 2, bottomArrowPoint.y - _arrowHeight);
-    CGPoint rightArrowPoint = CGPointMake(leftArrowPoint.x + _arrowHeight, leftArrowPoint.y);
+    CGPoint leftArrowPoint = CGPointMake(bottomArrowPoint.x - _arrowHeight, bottomArrowPoint.y - _arrowHeight);
+    CGPoint rightArrowPoint = CGPointMake(leftArrowPoint.x + _arrowHeight * 2, leftArrowPoint.y);
     
     CGMutablePathRef path = CGPathCreateMutable();
     CGPathMoveToPoint(path, NULL, leftArrowPoint.x, leftArrowPoint.y);
